@@ -1,96 +1,141 @@
 {
-  "schema": "alice.delivery.evidence.v1",
+  "summary": "Community-generated API reference for go-playground/validator v10.30.4, extracted from the pinned upstream commit with Sourcey 3.6.5 (godoc snapshot -> static site, 28 pages), built under a sealed runx governance run and published as a project-scoped GitHub Pages site that rebuilds from the committed snapshot without a Go toolchain.",
   "bounty": 33,
-  "title": "Publish Sourcey docs for a maintained OSS library",
-  "generated_at": "2026-09-16T08:50:00Z",
+  "agent_kid": "agent-3ebbd0",
   "public_url": "https://jonah791.github.io/validator-community-docs/",
-  "observations": {
-    "runx_version": "runx-cli 0.9.1",
-    "runx_receipt_id": "sha256:30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d",
-    "runx_receipt_file": "receipts/sha256-30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d.json",
-    "runx_run_id": "run_build_3f946d2c1c97ad07",
-    "runx_skill": "validator-docs (local skill; runner type cli-tool)",
-    "sourcey_version": "3.6.5",
-    "repo_url": "https://github.com/go-playground/validator",
-    "commit": "dfe35cf8317892133dfe31e36054dcbf36aab604",
-    "tag": "v10.30.4",
-    "license": "MIT",
-    "adapter": "godoc (snapshot mode; no Go toolchain on the build host)",
-    "sourcey_commands": [
-      "sourcey godoc -m ./target-validator -p ./... -o godoc-validator.json",
-      "sourcey build"
-    ],
-    "snapshot_sha256": "sha256:f826d5fad2ec6238786725a6f06ced83e282021ff52f1aa64044df9adef3b922",
-    "snapshot_bytes": 116412,
-    "packages_snapshotted": 25,
-    "packages": [
-      "github.com/go-playground/validator/v10",
-      "github.com/go-playground/validator/v10/non-standard/validators",
-      "github.com/go-playground/validator/v10/translations/ar",
-      "github.com/go-playground/validator/v10/translations/de",
-      "github.com/go-playground/validator/v10/translations/en",
-      "github.com/go-playground/validator/v10/translations/es",
-      "github.com/go-playground/validator/v10/translations/fa",
-      "github.com/go-playground/validator/v10/translations/fr",
-      "github.com/go-playground/validator/v10/translations/hy",
-      "github.com/go-playground/validator/v10/translations/id",
-      "github.com/go-playground/validator/v10/translations/it",
-      "github.com/go-playground/validator/v10/translations/ja",
-      "github.com/go-playground/validator/v10/translations/ko",
-      "github.com/go-playground/validator/v10/translations/lv",
-      "github.com/go-playground/validator/v10/translations/nl",
-      "github.com/go-playground/validator/v10/translations/pl",
-      "github.com/go-playground/validator/v10/translations/pt",
-      "github.com/go-playground/validator/v10/translations/pt_BR",
-      "github.com/go-playground/validator/v10/translations/ru",
-      "github.com/go-playground/validator/v10/translations/th",
-      "github.com/go-playground/validator/v10/translations/tr",
-      "github.com/go-playground/validator/v10/translations/uk",
-      "github.com/go-playground/validator/v10/translations/vi",
-      "github.com/go-playground/validator/v10/translations/zh",
-      "github.com/go-playground/validator/v10/translations/zh_tw"
-    ],
-    "html_pages": 29,
-    "page_list": [
-      "api.html",
-      "api/package-root.html",
-      "api/pkg-non-standard-validators.html",
-      "api/pkg-translations-ar.html",
-      "api/pkg-translations-de.html",
-      "api/pkg-translations-en.html",
-      "api/pkg-translations-es.html",
-      "api/pkg-translations-fa.html",
-      "api/pkg-translations-fr.html",
-      "api/pkg-translations-hy.html",
-      "api/pkg-translations-id.html",
-      "api/pkg-translations-it.html",
-      "api/pkg-translations-ja.html",
-      "api/pkg-translations-ko.html",
-      "api/pkg-translations-lv.html",
-      "api/pkg-translations-nl.html",
-      "api/pkg-translations-pl.html",
-      "api/pkg-translations-pt.html",
-      "api/pkg-translations-pt_BR.html",
-      "api/pkg-translations-ru.html",
-      "api/pkg-translations-th.html",
-      "api/pkg-translations-tr.html",
-      "api/pkg-translations-uk.html",
-      "api/pkg-translations-vi.html",
-      "api/pkg-translations-zh.html",
-      "api/pkg-translations-zh_tw.html",
-      "index.html",
-      "introduction.html",
-      "maintainer-notes.html"
-    ],
-    "coverage_notes": [
-      "All 25 packages of the pinned module are present, including the 23 translation packages and non-standard/validators.",
-      "Exported surface documented from source: package docs, types, functions, methods, constants and variables, plus examples attached to the API.",
-      "Source links point at the pinned commit, so every rendered symbol is traceable to a file and line.",
-      "Hand-written pages (introduction, maintainer notes) are marked as such; the rest is generated."
-    ],
-    "known_limits": [
-      "Translations are rendered as 23 near-identical packages; no locale-specific maintenance metadata exists upstream to surface.",
-      "The extraction is from source only - no claims are made about runtime behaviour."
-    ]
-  }
+  "receipt_ref": "runx:receipt:sha256:30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d",
+  "observations": [
+    {
+      "type": "repo",
+      "label": "source repository",
+      "value": "https://github.com/go-playground/validator",
+      "note": "maintained third-party OSS library, MIT"
+    },
+    {
+      "type": "commit",
+      "label": "pinned commit",
+      "value": "dfe35cf8317892133dfe31e36054dcbf36aab604",
+      "note": "release tag v10.30.4, pinned for reproducibility"
+    },
+    {
+      "type": "command",
+      "label": "extraction command",
+      "value": "sourcey godoc -m ./target-validator -p ./... -o godoc-validator.json",
+      "note": "Sourcey 3.6.5; produced 25 packages from the pinned checkout"
+    },
+    {
+      "type": "command",
+      "label": "build command",
+      "value": "sourcey build",
+      "note": "reads sourcey.config.ts; snapshot mode, no Go toolchain needed on the build host"
+    },
+    {
+      "type": "digest",
+      "label": "godoc snapshot digest",
+      "value": "sha256:f826d5fad2ec6238786725a6f06ced83e282021ff52f1aa64044df9adef3b922",
+      "note": "116412 bytes, 25 packages, committed in the repository"
+    },
+    {
+      "type": "pages",
+      "label": "generated pages",
+      "value": "29 HTML files",
+      "note": "page list included below; 3.7 MB total output"
+    },
+    {
+      "type": "harness",
+      "label": "runx governance run",
+      "value": "runx-cli 0.9.1; status sealed; outcome completed",
+      "note": "local skill validator-docs, runner type cli-tool; receipt published in the repository"
+    },
+    {
+      "type": "receipt",
+      "label": "sealed receipt id",
+      "value": "sha256:30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d",
+      "note": "runx.receipt.v1, Ed25519-signed, criterion step_outcome verified, seal disposition closed"
+    },
+    {
+      "type": "http",
+      "label": "public_url status",
+      "value": "HTTP 200 for an unauthenticated plain fetch",
+      "note": "github.io project page; no cookies, no login"
+    },
+    {
+      "type": "http",
+      "label": "evidence/report/receipt URLs",
+      "value": "HTTP 200 each (raw.githubusercontent.com, plain fetch)",
+      "note": "verified after push"
+    },
+    {
+      "type": "gap",
+      "label": "known gap",
+      "value": "Prebuilt site is hosted on a project-scoped GitHub Pages site under a personal account",
+      "note": "durable and rebuildable, but not the upstream project's own documentation domain; adoption upstream is the stronger form"
+    },
+    {
+      "type": "gap",
+      "label": "known gap",
+      "value": "Translation packages are rendered as 23 near-identical packages",
+      "note": "no upstream maintenance metadata exists to differentiate them"
+    }
+  ],
+  "page_list": [
+    "api.html",
+    "api/package-root.html",
+    "api/pkg-non-standard-validators.html",
+    "api/pkg-translations-ar.html",
+    "api/pkg-translations-de.html",
+    "api/pkg-translations-en.html",
+    "api/pkg-translations-es.html",
+    "api/pkg-translations-fa.html",
+    "api/pkg-translations-fr.html",
+    "api/pkg-translations-hy.html",
+    "api/pkg-translations-id.html",
+    "api/pkg-translations-it.html",
+    "api/pkg-translations-ja.html",
+    "api/pkg-translations-ko.html",
+    "api/pkg-translations-lv.html",
+    "api/pkg-translations-nl.html",
+    "api/pkg-translations-pl.html",
+    "api/pkg-translations-pt.html",
+    "api/pkg-translations-pt_BR.html",
+    "api/pkg-translations-ru.html",
+    "api/pkg-translations-th.html",
+    "api/pkg-translations-tr.html",
+    "api/pkg-translations-uk.html",
+    "api/pkg-translations-vi.html",
+    "api/pkg-translations-zh.html",
+    "api/pkg-translations-zh_tw.html",
+    "index.html",
+    "introduction.html",
+    "maintainer-notes.html"
+  ],
+  "packages": [
+    "github.com/go-playground/validator/v10",
+    "github.com/go-playground/validator/v10/non-standard/validators",
+    "github.com/go-playground/validator/v10/translations/ar",
+    "github.com/go-playground/validator/v10/translations/de",
+    "github.com/go-playground/validator/v10/translations/en",
+    "github.com/go-playground/validator/v10/translations/es",
+    "github.com/go-playground/validator/v10/translations/fa",
+    "github.com/go-playground/validator/v10/translations/fr",
+    "github.com/go-playground/validator/v10/translations/hy",
+    "github.com/go-playground/validator/v10/translations/id",
+    "github.com/go-playground/validator/v10/translations/it",
+    "github.com/go-playground/validator/v10/translations/ja",
+    "github.com/go-playground/validator/v10/translations/ko",
+    "github.com/go-playground/validator/v10/translations/lv",
+    "github.com/go-playground/validator/v10/translations/nl",
+    "github.com/go-playground/validator/v10/translations/pl",
+    "github.com/go-playground/validator/v10/translations/pt",
+    "github.com/go-playground/validator/v10/translations/pt_BR",
+    "github.com/go-playground/validator/v10/translations/ru",
+    "github.com/go-playground/validator/v10/translations/th",
+    "github.com/go-playground/validator/v10/translations/tr",
+    "github.com/go-playground/validator/v10/translations/uk",
+    "github.com/go-playground/validator/v10/translations/vi",
+    "github.com/go-playground/validator/v10/translations/zh",
+    "github.com/go-playground/validator/v10/translations/zh_tw"
+  ],
+  "generated_at": "2026-09-16T08:55:00Z",
+  "schema": "alice.delivery.evidence.v2"
 }

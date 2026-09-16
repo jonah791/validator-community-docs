@@ -36,6 +36,8 @@
 <h1>Producing a verifiable receipt with runx</h1>
 <p class="sub">One worked example, taken from a real delivery: a small skill builds a static documentation site from a pinned snapshot, and the run leaves a receipt a stranger can re-verify. Written for someone who wants to see the shape of the artifacts before reading the tool's source.</p>
 
+<p><strong>runx</strong> (<a href="https://runx.ai">runx.ai</a> · <a href="https://github.com/runxhq/runx">github.com/runxhq/runx</a>) is a harness for running published skills and leaving a signed, content-addressed record of what a run actually did. The point of that record is that someone who was not present can check it: which criteria the run claimed, what evidence backs each one, and who signed the result. This page walks through one such run end to end, because the receipt format is easier to trust once you have watched it being produced and re-verified.</p>
+
 <h2><span class="n">1.</span> The skill is two files</h2>
 <p>A runx skill is not a program you install. It is a declaration plus a runner definition:</p>
 <table>

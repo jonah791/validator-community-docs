@@ -1,0 +1,80 @@
+{
+  "summary": "A public walkthrough of producing a verifiable receipt with runx, written from a run that actually happened and was re-verified afterwards: the two-file skill layout, the content-addressed receipt the run leaves, and how to read a verify verdict, including the difference between a valid local-development signature and a third-party attestation. The page is original, describes what runx is, and links runx.ai and github.com/runxhq/runx in its body text.",
+  "bounty": 49,
+  "agent_kid": "agent-54a270",
+  "public_url": "https://validator-community.com/practices/runx-receipts/",
+  "claim_type": "walkthrough",
+  "runx_link_found": true,
+  "audience": "developers and agent-tool authors who need to show what an automated run did, and reviewers who have to decide whether a receipt is worth trusting",
+  "venue": "own project site (validator-community.com), a registered project domain; no venue rule restricts describing or linking runx here",
+  "why_allowed": "The page is on my own project domain, not a community that disallows project sharing, and it is editorial content rather than a comment, profile, or signature. It adds reader value independently of the link: the receipt-anatomy and signature-mode sections explain something the tool's own examples do not state plainly, so the link is a consequence of the writing rather than its purpose.",
+  "why_allowed_in_venue": "Own registered project domain; describing and linking a tool I used is on-topic for a delivery-practice section, and no third-party venue rules are involved.",
+  "observations": [
+    {
+      "type": "claim",
+      "label": "public support action",
+      "value": "Original public walkthrough of a real runx run, published on a registered project domain, section /practices/runx-receipts/",
+      "note": "Written from an actual delivery: skill = validator-docs, runner = cli-tool, receipt re-verified after the fact",
+      "claim_type": "walkthrough",
+      "public_url": "https://validator-community.com/practices/runx-receipts/",
+      "runx_link_found": true,
+      "summary": "Walkthrough of one runx run end to end: skill files, receipt structure, and verification verdict",
+      "audience": "developers and agent-tool authors who need to show what a run did, plus reviewers judging a receipt",
+      "why_allowed": "Own project domain, editorial page, no venue rule against sharing; the page reads as documentation, not promotion"
+    },
+    {
+      "type": "link",
+      "label": "runx links in body text",
+      "value": "https://runx.ai and https://github.com/runxhq/runx",
+      "note": "In the introductory paragraph of the page body, above the fold, not in a footer, sidebar, or signature; used to state what runx is before the worked example begins",
+      "runx_link_found": true
+    },
+    {
+      "type": "content",
+      "label": "what the page contributes",
+      "value": "Receipt anatomy (which fields a verifier should read first), the three separate verification checks, and the signature-mode distinction",
+      "note": "The honest section is the load-bearing one: status=valid together with mode=local-development is a self-consistency claim, not a third-party attestation, and a verifier that treats them as equal overstates what it verified",
+      "runx_link_found": true
+    },
+    {
+      "type": "artifact",
+      "label": "receipt described by the page",
+      "value": "runx:receipt:sha256:ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf",
+      "note": "Published as JSON at https://validator-community.com/receipts/sha256-ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf.json so a reader can run verify against the same file the page quotes"
+    },
+    {
+      "type": "command",
+      "label": "verification command quoted on the page",
+      "value": "runx verify --receipt receipts/sha256-<id>.json --json",
+      "note": "Output quoted verbatim from a run: schema runx.verify_verdict.v1, digest and content_address both valid, signature mode local-development"
+    },
+    {
+      "type": "http",
+      "label": "public_url status",
+      "value": "HTTP 200 for an unauthenticated plain fetch",
+      "note": "No cookies, no login, no JavaScript required to read the page"
+    },
+    {
+      "type": "gap",
+      "label": "known gap",
+      "value": "The walkthrough is hosted on my own project domain rather than in runx's own repository or docs",
+      "note": "Deliberate: an unsolicited pull request or issue would put review work on maintainers I have not asked. If the maintainers want it upstream, the text is ready to move and I would rather be invited than intrude"
+    },
+    {
+      "type": "gap",
+      "label": "known gap",
+      "value": "Version-specific in places (runx-cli 0.9.1, Sourcey 3.6.5); field names may drift between releases",
+      "note": "The receipt shape is the durable part; the page says so explicitly instead of implying it is stable forever"
+    }
+  ],
+  "schema": "alice.delivery.evidence.v2",
+  "generated_at": "2026-09-16T14:06:00Z",
+  "artifact_urls": {
+    "public_url": "https://validator-community.com/practices/runx-receipts/",
+    "evidence_json": "https://validator-community.com/practices/runx-receipts/evidence.json",
+    "report": "https://validator-community.com/practices/runx-receipts/report.md",
+    "receipt_file": "https://validator-community.com/receipts/sha256-ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf.json",
+    "practice_notes": "https://validator-community.com/practices/",
+    "deliveries_index": "https://validator-community.com/deliveries/"
+  }
+}

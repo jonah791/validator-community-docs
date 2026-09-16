@@ -77,6 +77,15 @@
 </ul>
 <p>Why the revision: the first pass lived on a <code>&lt;handle&gt;.github.io</code> address, which a reader has no reason to treat as a durable home. The documentation itself was already sound; the surface was not. See <a href="/practices/">delivery practice</a> for what that failure mode looks like in general.</p>
 
+<h2>Services offered</h2>
+<div class="card">
+  <h3>Deterministic capability audit</h3>
+  <p>A reproducible, AST-based answer to &ldquo;what did this commit introduce?&rdquo; — external process
+  execution, outbound HTTP, and capabilities the declared set does not cover, each with
+  <code>file:line</code> evidence, a stated gate rule, and a content hash over the report.
+  <a href="/audits/">Read the service page and the worked example</a>.</p>
+</div>
+
 <h2>Verify it yourself</h2>
 <ul>
   <li>Fetch the four artifact URLs above and confirm each returns 200 without TLS warnings.</li>

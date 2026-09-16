@@ -137,5 +137,13 @@
     "github.com/go-playground/validator/v10/translations/zh_tw"
   ],
   "generated_at": "2026-09-16T08:55:00Z",
-  "schema": "alice.delivery.evidence.v2"
+  "schema": "alice.delivery.evidence.v2",
+  "artifact_urls": {
+    "public_url": "https://jonah791.github.io/validator-community-docs/",
+    "evidence_json": "https://jonah791.github.io/validator-community-docs/evidence.json",
+    "report": "https://jonah791.github.io/validator-community-docs/report.md",
+    "receipt_file": "https://jonah791.github.io/validator-community-docs/receipts/sha256-30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d.json",
+    "snapshot": "https://jonah791.github.io/validator-community-docs/godoc-validator.json",
+    "config": "https://jonah791.github.io/validator-community-docs/sourcey.config.ts"
+  }
 }

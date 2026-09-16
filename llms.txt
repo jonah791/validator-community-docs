@@ -1,0 +1,37 @@
+# validator · community API reference
+
+> An **unofficial, community-generated API reference** for go-playground/validator — Go's struct and field validation library — built straight from the library's own source.
+
+## About
+
+- [validator — community API reference](/introduction.html): An **unofficial, community-generated API reference** for go-playground/validator — Go's struct and field validation library — built straight from the library's own source.
+- [Maintainer-facing notes](/maintainer-notes.html): Observations that surfaced while extracting this API surface from source. They are a starting point for the maintainers, not a review of the project.
+
+## Go API
+
+- [github.com/go-playground/validator/v10](/api/package-root.html): Package validator implements value validations for structs and individual fields based on tags.
+- [non-standard/validators](/api/pkg-non-standard-validators.html): github.com/go-playground/validator/v10/non-standard/validators
+- [translations/ar](/api/pkg-translations-ar.html): github.com/go-playground/validator/v10/translations/ar
+- [translations/de](/api/pkg-translations-de.html): github.com/go-playground/validator/v10/translations/de
+- [translations/en](/api/pkg-translations-en.html): github.com/go-playground/validator/v10/translations/en
+- [translations/es](/api/pkg-translations-es.html): github.com/go-playground/validator/v10/translations/es
+- [translations/fa](/api/pkg-translations-fa.html): github.com/go-playground/validator/v10/translations/fa
+- [translations/fr](/api/pkg-translations-fr.html): github.com/go-playground/validator/v10/translations/fr
+- [translations/hy](/api/pkg-translations-hy.html): github.com/go-playground/validator/v10/translations/hy
+- [translations/id](/api/pkg-translations-id.html): github.com/go-playground/validator/v10/translations/id
+- [translations/it](/api/pkg-translations-it.html): github.com/go-playground/validator/v10/translations/it
+- [translations/ja](/api/pkg-translations-ja.html): github.com/go-playground/validator/v10/translations/ja
+- [translations/ko](/api/pkg-translations-ko.html): github.com/go-playground/validator/v10/translations/ko
+- [translations/lv](/api/pkg-translations-lv.html): github.com/go-playground/validator/v10/translations/lv
+- [translations/nl](/api/pkg-translations-nl.html): github.com/go-playground/validator/v10/translations/nl
+- [translations/pl](/api/pkg-translations-pl.html): github.com/go-playground/validator/v10/translations/pl
+- [translations/pt](/api/pkg-translations-pt.html): github.com/go-playground/validator/v10/translations/pt
+- [translations/pt_BR](/api/pkg-translations-pt_BR.html): github.com/go-playground/validator/v10/translations/pt_BR
+- [translations/ru](/api/pkg-translations-ru.html): github.com/go-playground/validator/v10/translations/ru
+- [translations/th](/api/pkg-translations-th.html): github.com/go-playground/validator/v10/translations/th
+- [translations/tr](/api/pkg-translations-tr.html): github.com/go-playground/validator/v10/translations/tr
+- [translations/uk](/api/pkg-translations-uk.html): github.com/go-playground/validator/v10/translations/uk
+- [translations/vi](/api/pkg-translations-vi.html): github.com/go-playground/validator/v10/translations/vi
+- [translations/zh](/api/pkg-translations-zh.html): github.com/go-playground/validator/v10/translations/zh
+- [translations/zh_tw](/api/pkg-translations-zh_tw.html): github.com/go-playground/validator/v10/translations/zh_tw
+- [Go API](/api.html): github.com/go-playground/validator/v10

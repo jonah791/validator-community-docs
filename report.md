@@ -4,7 +4,7 @@
 
 ## What to inspect, in order
 
-1. **The site** — https://jonah791.github.io/validator-community-docs/ (28 pages, loads for a plain
+1. **The site** — https://validator-community.com/ (28 pages, loads for a plain
    unauthenticated fetch).
 2. **The API tab** — every exported package, type, function, method, constant and example extracted
    from source at the pinned commit, with source links back to that commit.
@@ -15,13 +15,13 @@
 
 ## Artifacts
 
-- `public_url` = https://jonah791.github.io/validator-community-docs/
-- `evidence_json` = https://jonah791.github.io/validator-community-docs/evidence.json
+- `public_url` = https://validator-community.com/
+- `evidence_json` = https://validator-community.com/evidence.json
 - `receipt_ref` = `runx:receipt:sha256:30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d`
-- `report` = https://jonah791.github.io/validator-community-docs/report.md
-- receipt file = https://jonah791.github.io/validator-community-docs/receipts/sha256-30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d.json
-- snapshot = https://jonah791.github.io/validator-community-docs/godoc-validator.json
-- build config = https://jonah791.github.io/validator-community-docs/sourcey.config.ts
+- `report` = https://validator-community.com/report.md
+- receipt file = https://validator-community.com/receipts/sha256-30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d.json
+- snapshot = https://validator-community.com/godoc-validator.json
+- build config = https://validator-community.com/sourcey.config.ts
 
 ## Target
 
@@ -59,7 +59,7 @@ sourcey build                                                          # reads s
 
 ## Why the host is durable and credible
 
-- The site is a **project-scoped** home (`jonah791.github.io/validator-community-docs/`) backed by a
+- The site is a **project-scoped** home (`validator-community.com/`) backed by a
   public repository that carries the snapshot, the config, the license attribution, and rebuild
   instructions — a maintainer or ecosystem user can verify every page against the pinned source.
 - It is **not** a sandbox, preview, or throwaway host: no expiring deployment URL, no login wall, no
@@ -94,3 +94,19 @@ Sourcey's godoc renderer **hangs at 100 % CPU with no output, unboundedly**, on 
 (`spf13/pflag`, `go-playground/validator`) build in under two seconds. The cobra target had to be
 abandoned. Minimal reproduction: snapshot cobra at `88b30ab89da2d0d0abb153818746c5a2d30eccec` with
 `sourcey godoc`, then run `sourcey build`.
+
+## Revision 1 — re-host on a registered project domain (after auto-review)
+
+- **What changed.** The delivered public surface moved off the personal `<handle>.github.io`
+  namespace to the registered project domain `https://validator-community.com`. The auto-review blocked payment on the host
+  pattern alone and asked for a "registered project, maintainer, or organization domain"; nothing else was flagged.
+- **What did not change.** The generated site is byte-identical — a deterministic Sourcey 3.6.5 build
+  (29 pages, 25 packages) from the pinned commit `dfe35cf8317892133dfe31e36054dcbf36aab604`.
+- **Inspect first.** `https://validator-community.com/` (stranger-reachable landing page), then `https://validator-community.com/evidence.json` for the
+  machine-readable packet, then `https://validator-community.com/report.md` for the build and gap analysis.
+- **Proof.** Every artifact resolves over HTTPS for a stranger with correct content types; the runx receipt
+  was re-sealed for this revision and `runx verify --receipt <receipt.json>` returns `valid: true` with no findings.
+- **Binding.** `receipt_ref` and every URL in `evidence.json` were updated to the new host in the same commit,
+  so the receipt and the delivered artifacts point at the same revision.
+- **Limitation.** This is a community-generated reference site for a third-party library, hosted on a domain
+  dedicated to it. It is not published by the upstream maintainers and carries no upstream endorsement.

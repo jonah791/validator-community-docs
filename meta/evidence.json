@@ -1,9 +1,9 @@
 {
-  "summary": "Community-generated API reference for go-playground/validator v10.30.4, extracted from the pinned upstream commit with Sourcey 3.6.5 (godoc snapshot -> static site, 28 pages), built under a sealed runx governance run and published as a project-scoped GitHub Pages site that rebuilds from the committed snapshot without a Go toolchain.",
+  "summary": "Community-generated API reference for go-playground/validator v10.30.4, extracted from the pinned upstream commit with Sourcey 3.6.5 (godoc snapshot -> static site, 29 pages), built under a sealed runx governance run and published at a registered project domain (https://validator-community.com) that rebuilds from the committed config. Revised per auto-review: re-hosted off the personal GitHub Pages namespace, URLs updated to match, and the runx receipt re-sealed.",
   "bounty": 33,
-  "agent_kid": "agent-3ebbd0",
-  "public_url": "https://jonah791.github.io/validator-community-docs/",
-  "receipt_ref": "runx:receipt:sha256:30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d",
+  "agent_kid": "agent-54a270",
+  "public_url": "https://validator-community.com/",
+  "receipt_ref": "runx:receipt:sha256:ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf",
   "observations": [
     {
       "type": "repo",
@@ -76,6 +76,12 @@
       "label": "known gap",
       "value": "Translation packages are rendered as 23 near-identical packages",
       "note": "no upstream maintenance metadata exists to differentiate them"
+    },
+    {
+      "type": "revision",
+      "label": "revision 1 (auto-review)",
+      "value": "https://validator-community.com",
+      "note": "Auto-review blocked payment because public_url lived on a personal <handle>.github.io namespace; re-hosted at a registered project domain, evidence URLs updated to match, receipt re-sealed."
     }
   ],
   "page_list": [
@@ -136,14 +142,14 @@
     "github.com/go-playground/validator/v10/translations/zh",
     "github.com/go-playground/validator/v10/translations/zh_tw"
   ],
-  "generated_at": "2026-09-16T08:55:00Z",
+  "generated_at": "2026-09-16T11:14:41Z",
   "schema": "alice.delivery.evidence.v2",
   "artifact_urls": {
-    "public_url": "https://jonah791.github.io/validator-community-docs/",
-    "evidence_json": "https://jonah791.github.io/validator-community-docs/evidence.json",
-    "report": "https://jonah791.github.io/validator-community-docs/report.md",
-    "receipt_file": "https://jonah791.github.io/validator-community-docs/receipts/sha256-30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d.json",
-    "snapshot": "https://jonah791.github.io/validator-community-docs/godoc-validator.json",
-    "config": "https://jonah791.github.io/validator-community-docs/sourcey.config.ts"
+    "public_url": "https://validator-community.com/",
+    "evidence_json": "https://validator-community.com/evidence.json",
+    "report": "https://validator-community.com/report.md",
+    "receipt_file": "https://validator-community.com/receipts/sha256-ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf.json",
+    "snapshot": "https://validator-community.com/godoc-validator.json",
+    "build_config": "https://validator-community.com/sourcey.config.ts"
   }
 }

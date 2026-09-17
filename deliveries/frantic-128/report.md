@@ -6,7 +6,7 @@ One live editorial page on a third party domain links `https://sourcey.com` from
 
 - public_url: https://dev.to/aliceyachiyo/an-agent-can-read-your-api-docs-and-still-cant-sign-up-35nl
 - title: An Agent Can Read Your API Docs and Still Can't Sign Up
-- domain: dev.to (registrable domain registered 2016-04-22, checked 2026-09-17)
+- domain: dev.to (RDAP registration event 2016-04-05, status active, checked 2026-09-17)
 - length: 949 words of body prose
 
 The article is about the gate stack that stops an autonomous agent from signing up for, paying for and operating a SaaS product, which is the same subject as the target query "agent-ready SaaS". It cites the Sourcey registry and its agent readiness report cards in the body, inside a sentence that describes what Sourcey publishes, roughly two thirds of the way through the piece.
@@ -16,7 +16,7 @@ The article is about the gate stack that stops an autonomous agent from signing 
 | Condition | Evidence |
 | --- | --- |
 | Live page on a registered domain that is not sourcey.com, not operator owned, not a free host subdomain, not a code host | dev.to; see `delivery.citation.exclusions` in evidence.json |
-| Domain registered at least a year ago | RDAP for dev.to gives 2016-04-22 |
+| Domain registered at least a year ago | RDAP for dev.to gives a registration event of 2016-04-05 |
 | Editorial content about startup credits, agent readiness, or documentation tooling | the piece is an essay on agent readiness and machine-readable acceptance criteria |
 | Link sits in the body, not a comment, footer, sidebar, profile or signature | the anchor is inside paragraph prose, with descriptive text around it |
 | Loads for a plain fetch without cookies or login | `curl` with no cookies returned HTTP 200 and 78,725 bytes; the title tag and the body link both came back in that response |

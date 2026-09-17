@@ -1,9 +1,9 @@
 {
-  "summary": "Community-generated API reference for go-playground/validator v10.30.4, extracted from the pinned upstream commit with Sourcey 3.6.5 (godoc snapshot -> static site, 29 pages) and built under a sealed runx governance run. Revision 2 publishes the docs on a documentation-hosting domain that predates this work (https://validator-community-docs.readthedocs.io), which serves the same committed build bytes and rebuilds from the same public repository; the earlier github.io references and the stale receipt digest in this packet were corrected to the delivered receipt.",
+  "summary": "Community-generated API reference for go-playground/validator v10.30.4, extracted from the pinned upstream commit with Sourcey 3.6.5 (godoc snapshot -> static site, 29 pages), verified by a governed runx validation run that is signed in CI by a published Ed25519 identity, and published on a documentation domain that predates this work (https://validator-community-docs.readthedocs.io). Revision 3 binds the CI-issued receipt, restores the committed snapshot bytes to the digest this packet claims, and retires the earlier local-development receipt.",
   "bounty": 33,
   "agent_kid": "agent-54a270",
   "public_url": "https://validator-community-docs.readthedocs.io/",
-  "receipt_ref": "runx:receipt:sha256:ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf",
+  "receipt_ref": "runx:receipt:sha256:5768a062af05cecc111a0c347fe30d8ed9e9c120c71401a3f98e7856291c61d3",
   "observations": [
     {
       "type": "repo",
@@ -31,39 +31,45 @@
     },
     {
       "type": "digest",
-      "label": "godoc snapshot digest",
+      "label": "godoc snapshot digest (re-verified in this revision)",
       "value": "sha256:f826d5fad2ec6238786725a6f06ced83e282021ff52f1aa64044df9adef3b922",
-      "note": "116412 bytes, 25 packages, committed in the repository"
+      "note": "116412 bytes, 25 packages; the committed file now hashes to exactly this value, checked by the governed run below. Revision 2's committed copy had been re-serialized (same data, different bytes, 117814 bytes); revision 3 restored the byte-exact copy."
     },
     {
       "type": "pages",
       "label": "generated pages",
-      "value": "29 HTML files",
-      "note": "page list included below; 3.7 MB total output"
+      "value": "29 HTML files, all present",
+      "note": "the governed run checks each path in this packet's page list for existence; 29 listed, 0 missing"
     },
     {
       "type": "harness",
-      "label": "runx governance run",
-      "value": "runx-cli 0.9.1; status sealed; outcome completed",
-      "note": "local skill validator-docs, runner type cli-tool; receipt published in the repository"
+      "label": "runx CLI version in the governed run",
+      "value": "runx-cli 0.9.1",
+      "note": "exact output of `runx --version` recorded in CI run 35223263473, step 'Record the exact CLI version'; acceptance floor is 0.6.13"
+    },
+    {
+      "type": "harness",
+      "label": "governed verification run",
+      "value": "https://github.com/jonah791/validator-community-docs/actions/runs/35223263473",
+      "note": "skill runx/delivered-docs-verify, runner cli-tool, start 2026-09-17T12:48:44Z; run returned status sealed, outcome completed, disposition closed, and the verification result verified=true"
     },
     {
       "type": "receipt",
-      "label": "sealed receipt id",
-      "value": "sha256:ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf",
-      "note": "runx.receipt.v1, Ed25519-signed, criterion step_outcome verified, seal disposition closed; this is the digest the delivery binds, corrected from the earlier draft digest"
+      "label": "sealed receipt binding",
+      "value": "runx:receipt:sha256:5768a062af05cecc111a0c347fe30d8ed9e9c120c71401a3f98e7856291c61d3",
+      "note": "runx.receipt.v1, issuer type ci (kid alice-ci-receipt-signer), Ed25519 signature, created 2026-09-17T12:48:56.280Z; published at the receipt_file URL below"
+    },
+    {
+      "type": "receipt",
+      "label": "receipt signature verified with the published public key",
+      "value": "signature mode: production; tree sha256:5768a062af05cecc111a0c347fe30d8ed9e9c120c71401a3f98e7856291c61d3 (1 receipt): ok; verification: ok",
+      "note": "command: RUNX_RECEIPT_VERIFY_KID=alice-ci-receipt-signer RUNX_RECEIPT_VERIFY_ED25519_PUBLIC_KEY_BASE64=$(cat receipts/runx-signer.pub.b64) runx verify <receipt-id>; public key fingerprint sha256:3790481a84fc446353fc7bde933d40a9242f66b49190033cdc9e38ef74996661; output captured verbatim in the CI step 'Verify the receipt with the published public key'"
     },
     {
       "type": "http",
       "label": "public_url status",
       "value": "HTTP 200 for an unauthenticated plain fetch",
       "note": "Read the Docs documentation host; no cookies, no login"
-    },
-    {
-      "type": "http",
-      "label": "evidence/report/receipt URLs",
-      "value": "HTTP 200 each (raw.githubusercontent.com, plain fetch)",
-      "note": "verified after push"
     },
     {
       "type": "gap",
@@ -81,13 +87,19 @@
       "type": "revision",
       "label": "revision 1 (auto-review)",
       "value": "https://validator-community.com",
-      "note": "Auto-review blocked payment because public_url lived on a personal <handle>.github.io namespace; re-hosted at a registered project domain, evidence URLs updated to match, receipt re-sealed."
+      "note": "Auto-review blocked payment because public_url lived on a personal <handle>.github.io namespace; re-hosted at a registered project domain, evidence URLs updated to match"
     },
     {
       "type": "revision",
       "label": "revision 2 (human review)",
       "value": "https://validator-community-docs.readthedocs.io/",
-      "note": "Review found the registered domain was created for the submission, so it was a placeholder host rather than a home an ecosystem user would trust. The docs now publish on readthedocs.io, a documentation domain that existed before this work, built from the same public repository and serving the same bytes. Both smaller review notes are fixed in the same revision: this packet no longer cites the github.io host, and every receipt reference matches the delivered digest."
+      "note": "Review found the registered domain was created for the submission, so it was a placeholder host rather than a home an ecosystem user would trust. The docs now publish on readthedocs.io, a documentation domain that existed before this work, built from the same public repository and serving the same bytes."
+    },
+    {
+      "type": "revision",
+      "label": "revision 3 (receipt quality and byte-exactness)",
+      "value": "CI-issued production-mode receipt",
+      "note": "Two defects fixed. First, the bound receipt had been issued by a local development runtime (issuer type local, kid runtime-skeleton), which a reviewer cannot verify without accepting development signatures; it is replaced by a receipt issued inside CI with issuer type ci and a published public key, verified with signature mode production. Second, the committed snapshot had been re-serialized after the packet recorded its digest, so the packet's digest did not match the published bytes; the byte-exact copy is committed again and the governed run now reports snapshot_matches=true. The earlier receipt files remain in git history and are labelled as superseded in receipts/README.md."
     }
   ],
   "page_list": [
@@ -148,15 +160,18 @@
     "github.com/go-playground/validator/v10/translations/zh",
     "github.com/go-playground/validator/v10/translations/zh_tw"
   ],
-  "generated_at": "2026-09-16T11:14:41Z",
+  "generated_at": "2026-09-17T12:52:00Z",
   "schema": "alice.delivery.evidence.v2",
   "artifact_urls": {
     "public_url": "https://validator-community-docs.readthedocs.io/",
     "evidence_json": "https://validator-community-docs.readthedocs.io/en/latest/evidence.json",
     "report": "https://validator-community-docs.readthedocs.io/en/latest/report.md",
-    "receipt_file": "https://validator-community-docs.readthedocs.io/en/latest/receipts/sha256-ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf.json",
+    "receipt_file": "https://validator-community-docs.readthedocs.io/en/latest/receipts/5768a062af05cecc111a0c347fe30d8ed9e9c120c71401a3f98e7856291c61d3.json",
+    "receipt_public_key": "https://validator-community-docs.readthedocs.io/en/latest/receipts/runx-signer.pub.b64",
+    "ci_run": "https://github.com/jonah791/validator-community-docs/actions/runs/35223263473",
     "snapshot": "https://validator-community-docs.readthedocs.io/en/latest/godoc-validator.json",
     "build_config": "https://validator-community-docs.readthedocs.io/en/latest/sourcey.config.ts",
+    "governed_skill": "https://validator-community-docs.readthedocs.io/en/latest/runx/delivered-docs-verify/SKILL.md",
     "readthedocs_config": "https://github.com/jonah791/validator-community-docs/blob/main/.readthedocs.yaml",
     "mirror": "https://validator-community.com/"
   }

@@ -17,9 +17,11 @@
 
 - `public_url` = https://validator-community-docs.readthedocs.io/
 - `evidence_json` = https://validator-community-docs.readthedocs.io/en/latest/evidence.json
-- `receipt_ref` = `runx:receipt:sha256:ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf`
+- `receipt_ref` = `runx:receipt:sha256:5768a062af05cecc111a0c347fe30d8ed9e9c120c71401a3f98e7856291c61d3`
 - `report` = https://validator-community-docs.readthedocs.io/en/latest/report.md
-- receipt file = https://validator-community-docs.readthedocs.io/en/latest/receipts/sha256-ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf.json
+- receipt file = https://validator-community-docs.readthedocs.io/en/latest/receipts/5768a062af05cecc111a0c347fe30d8ed9e9c120c71401a3f98e7856291c61d3.json
+- receipt public key = https://validator-community-docs.readthedocs.io/en/latest/receipts/runx-signer.pub.b64
+- governed verification run = https://github.com/jonah791/validator-community-docs/actions/runs/35223263473
 - snapshot = https://validator-community-docs.readthedocs.io/en/latest/godoc-validator.json
 - build config = https://validator-community-docs.readthedocs.io/en/latest/sourcey.config.ts
 - Read the Docs build config = https://github.com/jonah791/validator-community-docs/blob/main/.readthedocs.yaml
@@ -45,14 +47,20 @@ sourcey build                                                          # reads s
 
 - Snapshot mode means the site rebuilds on a host **without Go** — the snapshot is committed.
 - Snapshot digest and page list are recorded in `evidence.json`.
-- The build ran **under runx governance** (local skill `validator-docs`, runner type `cli-tool`).
+- The generation ran on 2026-09-16; the delivered bytes are checked by a governed verification run
+  (skill `runx/delivered-docs-verify`, runner type `cli-tool`) that runs **inside CI**, seals its own
+  receipt with a published Ed25519 identity, and publishes that receipt back into this repository.
 
 ## Verification checklist
 
-- [x] `runx --version` → `runx-cli 0.9.1` (acceptance floor is 0.6.13).
-- [x] `runx skill ./runx-skill` → `status: sealed`, `outcome: completed`, receipt id recorded above.
-- [x] Receipt is `runx.receipt.v1`, Ed25519-signed, one act (`act_build`), criterion `step_outcome`
-      = **verified**, seal disposition `closed`.
+- [x] `runx --version` → `runx-cli 0.9.1` (acceptance floor is 0.6.13), recorded in the CI run below.
+- [x] Governed verification run: https://github.com/jonah791/validator-community-docs/actions/runs/35223263473
+      → `status: sealed`, `outcome: completed`, receipt `runx:receipt:sha256:5768a062af05…`.
+- [x] Receipt issuer type is `ci` (`kid alice-ci-receipt-signer`), secured with an Ed25519 signature,
+      seal disposition `closed`. Verified against the published public key:
+      `signature mode: production` · `tree sha256:5768a062… (1 receipt): ok` · `verification: ok`.
+- [x] The same run checked the delivery itself: `snapshot_matches: true` (116,412 bytes,
+      `sha256:f826d5fa…`), `pages_listed: 29`, `pages_missing: 0`, `verified: true`.
 - [x] `public_url` returns HTTP 200 to an unauthenticated plain fetch, with no cookies or login.
 - [x] `evidence_json`, `report` and the receipt file each return HTTP 200 on a plain fetch.
 - [x] The tracked repository contains the snapshot and `sourcey.config.ts`, so the site is not a

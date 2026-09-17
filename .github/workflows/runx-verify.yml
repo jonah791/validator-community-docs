@@ -1,0 +1,87 @@
+name: runx governed verification
+
+# Dispatch only. A push trigger would re-enter through this workflow's own
+# receipt commit, so the governed run is started deliberately.
+on:
+  workflow_dispatch:
+    inputs:
+      snapshot_digest:
+        description: Expected SHA-256 of godoc-validator.json
+        required: true
+        default: sha256:f826d5fad2ec6238786725a6f06ced83e282021ff52f1aa64044df9adef3b922
+      expected_pages:
+        description: Expected number of HTML pages
+        required: true
+        default: "29"
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      RUNX_RECEIPT_SIGN_KID: alice-ci-receipt-signer
+      RUNX_RECEIPT_SIGN_ISSUER_TYPE: ci
+      RUNX_RECEIPT_SIGN_ED25519_SEED_BASE64: ${{ secrets.RUNX_RECEIPT_SIGN_ED25519_SEED_BASE64 }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install runx CLI
+        run: npm install --global @runxhq/cli
+
+      - name: Record the exact CLI version
+        run: runx --version | tee runx-version.txt
+
+      - name: Governed verification run
+        run: |
+          set -euo pipefail
+          export RUNX_RECEIPT_DIR="$RUNNER_TEMP/runx-receipts"
+          mkdir -p "$RUNX_RECEIPT_DIR"
+          runx skill ./runx/delivered-docs-verify \
+            --input-json snapshot_digest='"${{ inputs.snapshot_digest }}"' \
+            --input-json expected_pages='"${{ inputs.expected_pages }}"' \
+            --json | tee skill-run.json
+          receipt_id=$(python3 -c "import json;print(json.load(open('skill-run.json'))['receipt_id'])")
+          echo "receipt_id=$receipt_id" >> "$GITHUB_ENV"
+          echo "receipt_id=$receipt_id" >> "$GITHUB_STEP_SUMMARY"
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d = json.load(open('skill-run.json'))
+          print(json.dumps({k: d[k] for k in ('status','outcome','receipt_id','schema')}, indent=2))
+          print(json.dumps(d.get('result', {}), indent=2))
+          PY
+
+      - name: Verify the receipt with the published public key
+        run: |
+          set -euo pipefail
+          export RUNX_RECEIPT_DIR="$RUNNER_TEMP/runx-receipts"
+          export RUNX_RECEIPT_VERIFY_KID=alice-ci-receipt-signer
+          export RUNX_RECEIPT_VERIFY_ED25519_PUBLIC_KEY_BASE64="$(cat receipts/runx-signer.pub.b64)"
+          runx verify "$receipt_id" 2>&1 | tee receipt-verify.txt || true
+
+      - name: Publish the receipt into the repository
+        run: |
+          set -euo pipefail
+          mkdir -p receipts
+          src="$RUNNER_TEMP/runx-receipts/sha256-${receipt_id#sha256:}.json"
+          cp "$src" "receipts/${receipt_id#sha256:}.json"
+          cp "$RUNNER_TEMP/runx-receipts/index.json" "receipts/index-ci.json" || true
+          git config user.name "runx-ci"
+          git config user.email "runx-ci@users.noreply.github.com"
+          git add receipts
+          git commit -m "receipts: publish CI-issued receipt ${receipt_id}" || echo "nothing to commit"
+          git push
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: runx-receipt
+          path: |
+            receipts/*.json
+            receipt-verify.txt
+            runx-version.txt
+            skill-run.json

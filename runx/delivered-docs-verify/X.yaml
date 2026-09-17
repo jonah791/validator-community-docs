@@ -1,0 +1,55 @@
+skill: delivered-docs-verify
+version: "0.1.1"
+
+catalog:
+  kind: skill
+  audience: public
+  visibility: public
+  role: canonical
+
+harness:
+  cases:
+    - name: delivered-docs-verify-smoke
+      runner: default
+      operator_journeys:
+        - mode: standalone
+          confusors: [extract, web-fetch]
+          request: Verify the delivered docs checkout against its recorded snapshot digest and page list.
+          expected_outcome: Return the digest verdict and the page verdict from the default runner in a sealed receipt.
+        - mode: composed
+          request: Reuse the digest and page list already supplied by the prior step.
+          expected_outcome: Reuse the supplied digest and page list without rediscovering or rewriting them.
+          prior_evidence:
+            - The snapshot digest and page list supplied by the prior step.
+          must_not_repeat:
+            - Do not recompute or reselect the expected digest and page list.
+      inputs:
+        snapshot_digest: sha256:f826d5fad2ec6238786725a6f06ced83e282021ff52f1aa64044df9adef3b922
+        expected_pages: index.html,introduction.html,api.html
+      expect:
+        status: sealed
+        receipt:
+          schema: runx.receipt.v1
+          state: sealed
+          disposition: closed
+          reason_code: process_closed
+
+runners:
+  default:
+    default: true
+    type: cli-tool
+    command: node
+    args:
+      - run.mjs
+    artifacts:
+      named_emits:
+        verified: verified
+    inputs:
+      snapshot_digest:
+        type: string
+        required: true
+        description: Expected SHA-256 of godoc-validator.json, as recorded in the delivery packet.
+      expected_pages:
+        type: string
+        required: true
+        description: Comma-separated list of page paths the delivery packet claims, checked for existence.

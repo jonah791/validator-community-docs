@@ -98,7 +98,7 @@
     {
       "type": "revision",
       "label": "revision 1 (auto-review)",
-      "value": "https://validator-community.com",
+      "value": "https://validator-community-docs.readthedocs.io/en/latest",
       "note": "Auto-review blocked payment because public_url lived on a personal <handle>.github.io namespace; re-hosted at a registered project domain, evidence URLs updated to match"
     },
     {
@@ -185,6 +185,6 @@
     "build_config": "https://validator-community-docs.readthedocs.io/en/latest/sourcey.config.ts",
     "governed_skill": "https://validator-community-docs.readthedocs.io/en/latest/runx/delivered-docs-verify/SKILL.md",
     "readthedocs_config": "https://github.com/jonah791/validator-community-docs/blob/main/.readthedocs.yaml",
-    "mirror": "https://validator-community.com/"
+    "mirror": "https://validator-community-docs.readthedocs.io/en/latest/"
   }
 }

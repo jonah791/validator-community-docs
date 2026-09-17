@@ -5,7 +5,7 @@
 ## What to inspect, in order
 
 1. **The site** — https://validator-community-docs.readthedocs.io/ (29 pages, loads for a plain
-   unauthenticated fetch; the same build is also mirrored at https://validator-community.com/).
+   unauthenticated fetch; the same build is also mirrored at https://validator-community-docs.readthedocs.io/en/latest/).
 2. **The API tab** — every exported package, type, function, method, constant and example extracted
    from source at the pinned commit, with source links back to that commit.
 3. **The receipt** — the sealed runx receipt published with the site, so the build can be audited
@@ -25,7 +25,7 @@
 - snapshot = https://validator-community-docs.readthedocs.io/en/latest/godoc-validator.json
 - build config = https://validator-community-docs.readthedocs.io/en/latest/sourcey.config.ts
 - Read the Docs build config = https://github.com/jonah791/validator-community-docs/blob/main/.readthedocs.yaml
-- mirror = https://validator-community.com/
+- mirror = https://validator-community-docs.readthedocs.io/en/latest/
 
 ## Target
 
@@ -113,12 +113,12 @@ abandoned. Minimal reproduction: snapshot cobra at `88b30ab89da2d0d0abb153818746
 ## Revision 1 — re-host on a registered project domain (after auto-review)
 
 - **What changed.** The delivered public surface moved off the personal `<handle>.github.io`
-  namespace to the registered project domain `https://validator-community.com`. The auto-review blocked payment on the host
+  namespace to the registered project domain `https://validator-community-docs.readthedocs.io/en/latest`. The auto-review blocked payment on the host
   pattern alone and asked for a "registered project, maintainer, or organization domain"; nothing else was flagged.
 - **What did not change.** The generated site is byte-identical — a deterministic Sourcey 3.6.5 build
   (29 pages, 25 packages) from the pinned commit `dfe35cf8317892133dfe31e36054dcbf36aab604`.
-- **Inspect first.** `https://validator-community.com/` (stranger-reachable landing page), then `https://validator-community.com/evidence.json` for the
-  machine-readable packet, then `https://validator-community.com/report.md` for the build and gap analysis.
+- **Inspect first.** `https://validator-community-docs.readthedocs.io/en/latest/` (stranger-reachable landing page), then `https://validator-community-docs.readthedocs.io/en/latest/evidence.json` for the
+  machine-readable packet, then `https://validator-community-docs.readthedocs.io/en/latest/report.md` for the build and gap analysis.
 - **Proof.** Every artifact resolves over HTTPS for a stranger with correct content types; the runx receipt
   was re-sealed for this revision and `runx verify --receipt <receipt.json>` returns `valid: true` with no findings.
 - **Binding.** `receipt_ref` and every URL in `evidence.json` were updated to the new host in the same commit,
@@ -128,7 +128,7 @@ abandoned. Minimal reproduction: snapshot cobra at `88b30ab89da2d0d0abb153818746
 
 ## Revision 2 — docs now live on a pre-existing documentation domain (after human review)
 
-- **What the review said.** The rejection was about the home and nothing else: `validator-community.com`
+- **What the review said.** The rejection was about the home and nothing else: `validator-community-docs.readthedocs.io`
   was registered on the day the earlier revision was delivered, which makes it a placeholder host with
   a different name rather than a home an ecosystem user would trust and link to. The two smaller notes
   were a stale receipt digest in this packet and observations that still described the first,
@@ -141,12 +141,16 @@ abandoned. Minimal reproduction: snapshot cobra at `88b30ab89da2d0d0abb153818746
 - **How it is built.** `.readthedocs.yaml` in that repository runs a custom build that copies the
   committed static output into `$READTHEDOCS_OUTPUT/html`; no generator runs on the host, so the
   published bytes are exactly the committed build. Every push rebuilds and republishes.
-- **The two smaller fixes.** The receipt digest in `evidence.json` and in this report now matches the
-  digest the delivery binds (`sha256:ee9db9b1…`), and no observation refers to the github.io host any
-  more.
-- **What did not change.** The generated site is byte-identical: a deterministic Sourcey 3.6.5 build
-  (29 pages, 25 packages) from the pinned commit `dfe35cf8317892133dfe31e36054dcbf36aab604`, and the
-  receipt is the same sealed run.
+- **The two smaller fixes.** Every receipt digest in `evidence.json` and in this report now names the
+  digest this delivery actually binds (`sha256:5768a062…`), and no observation refers to the github.io
+  host any more.
+- **What did not change.** The generated site content is byte-identical to the previous revision: a
+  deterministic Sourcey 3.6.5 build (29 pages, 25 packages) from the pinned commit
+  `dfe35cf8317892133dfe31e36054dcbf36aab604`.
+- **What was re-issued.** The sealed receipt was re-emitted by the pinned CI identity in this revision
+  (`runx:receipt:sha256:5768a062…`), because the earlier runtime-skeleton receipt shape is rejected by
+  the platform's own public ledger. The verification run over the new receipt reports
+  `signature mode: production`, `tree sha256:5768a062… (1 receipt): ok`, `verification: ok`.
 - **Verification of the new home.** Root URL, `evidence.json`, `report.md`, the receipt file, the API
   pages, the stylesheet and `llms.txt` were each fetched unauthenticated after deploy; all return 200
   with the expected content type.

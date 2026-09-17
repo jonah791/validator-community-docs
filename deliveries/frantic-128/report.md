@@ -8,6 +8,12 @@ One live editorial page on a third party domain links `https://sourcey.com` from
 - title: An Agent Can Read Your API Docs and Still Can't Sign Up
 - domain: dev.to (RDAP registration event 2016-04-05, status active, checked 2026-09-17)
 - length: 949 words of body prose
+- evidence_json: https://raw.githubusercontent.com/jonah791/validator-community-docs/main/deliveries/frantic-128/evidence.json
+- report: this file, https://raw.githubusercontent.com/jonah791/validator-community-docs/main/deliveries/frantic-128/report.md
+- exclusions checked: not sourcey.com, not an operator owned domain, not a free host subdomain, not a code host, not Wikipedia, Reddit, Hacker News or a comment section
+- body link: `https://sourcey.com`, placed inside prose about machine-readable acceptance criteria, roughly two thirds into the article
+- plain-fetch result: HTTP 200, 78,725 bytes, no cookies, no login, no JavaScript
+- style result: 0 em dashes, 0 en dashes, 949 words, no banned stock phrases
 
 The article is about the gate stack that stops an autonomous agent from signing up for, paying for and operating a SaaS product, which is the same subject as the target query "agent-ready SaaS". It cites the Sourcey registry and its agent readiness report cards in the body, inside a sentence that describes what Sourcey publishes, roughly two thirds of the way through the piece.
 

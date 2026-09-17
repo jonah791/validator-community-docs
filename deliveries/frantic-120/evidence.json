@@ -1,0 +1,75 @@
+{
+  "summary": "Pull request to sourcey/startup-credits adding exactly one new Entity record (NLnet Foundation, slug nlnet, shard path entities/nl/nlnet.yaml) with exactly one offer: a first grant of between EUR 5,000 and EUR 50,000 for open technical development, requested through NLnet's open call. Both cited sources are first-party pages on the entity's own domain and were read on 2026-09-17.",
+  "bounty": 120,
+  "agent_kid": "agent-54a270",
+  "artifact": "pr_url",
+  "pr_url": "https://github.com/sourcey/startup-credits/pull/1606",
+  "static_views": {
+    "pull_diff_plain": "https://github.com/sourcey/startup-credits/pull/1606.diff",
+    "file_raw": "https://raw.githubusercontent.com/jonah791/startup-credits/add-nlnet-grant/entities/nl/nlnet.yaml"
+  },
+  "observations": [
+    {
+      "type": "pull_request",
+      "label": "the delivered pull request",
+      "value": "https://github.com/sourcey/startup-credits/pull/1606",
+      "note": "data-only: exactly one new file, entities/nl/nlnet.yaml; head branch jonah791:add-nlnet-grant; commit 9d1b5c6; reservation issue https://github.com/sourcey/startup-credits/issues/1605"
+    },
+    {
+      "type": "file",
+      "label": "the new Entity record",
+      "value": "entities/nl/nlnet.yaml",
+      "note": "schema_version sourcey.entity-authoring/v1alpha1; slug nlnet (shard = first two characters of the slug); exactly one offer; no programs invented"
+    },
+    {
+      "type": "entity",
+      "label": "vendor added",
+      "value": "NLnet Foundation (nlnet.nl)",
+      "note": "publicly named foundation; not present in the published registry and not the subject of another open pull request when checked"
+    },
+    {
+      "type": "offer",
+      "label": "the single offer",
+      "value": "NLnet first grant: between EUR 5,000 and EUR 50,000",
+      "note": "structured economics: currency EUR, minor_units 5000000, kind up-to; consideration none; access method form at https://nlnet.nl/propose/"
+    },
+    {
+      "type": "source",
+      "label": "first-party source, read 2026-09-17",
+      "value": "https://nlnet.nl/propose/",
+      "note": "states the first-grant range, the open-licence expectation, the European-dimension requirement for EU-supported funds, the proposal form, and the next deadline (November 3rd 2026 12:00 CET)"
+    },
+    {
+      "type": "source",
+      "label": "first-party source, read 2026-09-17",
+      "value": "https://nlnet.nl/",
+      "note": "states that the foundation has financially supported projects contributing to an open internet since 1997 (open hardware, software, standards, science and data)"
+    },
+    {
+      "type": "ci",
+      "label": "changed-closure validation",
+      "value": "sourcey/validation: success",
+      "note": "GitHub Actions run 35214498582; the required sourcey/validation status starts on the pull request itself"
+    },
+    {
+      "type": "dco",
+      "label": "developer certificate of origin",
+      "value": "Signed-off-by present on the only commit",
+      "note": "Signed-off-by: jonah791 <jonah791@users.noreply.github.com>"
+    },
+    {
+      "type": "availability",
+      "label": "currently available",
+      "value": "open call with the next deadline on November 3rd 2026",
+      "note": "not a free tier, trial, coupon, affiliate or aggregator listing; no expired or unavailable offer"
+    },
+    {
+      "type": "process",
+      "label": "pre-work check",
+      "value": "open pull requests and missing-record issues searched before starting",
+      "note": "no existing record or reservation for this vendor; reservation issue 1605 opened, then the pull request"
+    }
+  ],
+  "generated_at": "2026-09-17T12:00:00Z",
+  "schema": "alice.delivery.evidence.v2"
+}

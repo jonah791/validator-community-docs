@@ -1,5 +1,5 @@
 skill: delivered-docs-verify
-version: "0.1.1"
+version: "0.1.2"
 
 catalog:
   kind: skill
@@ -14,7 +14,7 @@ harness:
       operator_journeys:
         - mode: standalone
           confusors: [extract, web-fetch]
-          request: Verify the delivered docs checkout against its recorded snapshot digest and page list.
+          request: Verify a documentation checkout against its recorded snapshot digest and page list.
           expected_outcome: Return the digest verdict and the page verdict from the default runner in a sealed receipt.
         - mode: composed
           request: Reuse the digest and page list already supplied by the prior step.
@@ -24,8 +24,9 @@ harness:
           must_not_repeat:
             - Do not recompute or reselect the expected digest and page list.
       inputs:
+        site_root: .
         snapshot_digest: sha256:f826d5fad2ec6238786725a6f06ced83e282021ff52f1aa64044df9adef3b922
-        expected_pages: index.html,introduction.html,api.html
+        expected_pages: index.html
       expect:
         status: sealed
         receipt:
@@ -33,6 +34,24 @@ harness:
           state: sealed
           disposition: closed
           reason_code: process_closed
+    - name: delivered-docs-verify-malformed-digest
+      runner: default
+      operator_journeys:
+        - mode: standalone
+          confusors: [extract, web-fetch]
+          request: Verify a checkout while the packet declares a digest that is not a digest.
+          expected_outcome: Stop with a reported reason instead of returning a verdict that means nothing.
+      inputs:
+        site_root: .
+        snapshot_digest: not-a-digest
+        expected_pages: index.html
+      expect:
+        status: failure
+        receipt:
+          schema: runx.receipt.v1
+          state: sealed
+          disposition: failed
+          reason_code: process_failed
 
 runners:
   default:
@@ -45,6 +64,10 @@ runners:
       named_emits:
         verified: verified
     inputs:
+      site_root:
+        type: string
+        required: true
+        description: Directory holding the checkout to verify. Absolute paths are used as given; relative paths resolve against this skill directory (the packaged smoke case uses "fixtures").
       snapshot_digest:
         type: string
         required: true
@@ -52,4 +75,4 @@ runners:
       expected_pages:
         type: string
         required: true
-        description: Comma-separated list of page paths the delivery packet claims, checked for existence.
+        description: Comma-separated list of page paths the delivery packet claims, each checked for existence under the site root.

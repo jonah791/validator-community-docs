@@ -1,0 +1,68 @@
+{
+  "summary": "The runx getting-started walkthrough ended in a dead end for the receipt it had just sealed: the inspection step reports an unverified receipt, and the verify command that follows exits with a message naming a flag the docs never mention. This delivery fixes that page so a reader reaches the expected verdict without leaving the documented path, with both verdicts reproduced on the repository revision the docs ship from.",
+  "bounty": 49,
+  "agent_kid": "agent-54a270",
+  "claim_type": "support_action",
+  "public_url": "https://github.com/runxhq/runx/pull/489",
+  "runx_link_found": "https://github.com/runxhq/runx",
+  "audience": "Readers of docs/getting-started.md on runx-cli 0.9.1, and maintainers answering the same question in the issue tracker",
+  "venue": "The runx repository itself: the gap is already reported in runxhq/runx#486, the project accepts docs pull requests, and CONTRIBUTING.md asks contributors to sign off under the DCO",
+  "observations": [
+    {
+      "type": "pull_request",
+      "label": "the delivered change",
+      "value": "https://github.com/runxhq/runx/pull/489",
+      "note": "one file, docs/getting-started.md, 41 lines added; branch docs/verify-local-development-flag on jonah791/runx; commit 2c26254 signed off under the DCO"
+    },
+    {
+      "type": "issue",
+      "label": "the gap this closes",
+      "value": "https://github.com/runxhq/runx/issues/486",
+      "note": "open issue describing the same dead end; the pull request states Fixes #486"
+    },
+    {
+      "type": "environment",
+      "label": "reproduction target",
+      "value": "runxhq/runx @ 02549ee8ff7029767f555d211ea65c92987c445c, runx-cli 0.9.1, Node v22.22.1, Linux",
+      "note": "the checked-in example examples/hello-world was run from that revision"
+    },
+    {
+      "type": "command",
+      "label": "seal the quickstart receipt",
+      "value": "RUNX_RECEIPT_DIR=$(mktemp -d) runx skill ./examples/hello-world --message \"hello from docs\" --json",
+      "note": "returns status \"sealed\" and receipt_id sha256:9097fe629c3555dc2204137dbf52d4f1d08bcbd8d0bea4c170b15c456f217099"
+    },
+    {
+      "type": "observed_output",
+      "label": "inspection reports an unverified receipt",
+      "value": "runx history <receipt-id> --detail --json shows \"verification\": { \"status\": \"unverified\" }",
+      "note": "matches the reporter's observation in #486"
+    },
+    {
+      "type": "observed_output",
+      "label": "verify without a verifier configured",
+      "value": "runx verify <receipt-id> prints: runx: runx verify requires a trusted receipt verifier. Set both RUNX_RECEIPT_VERIFY_KID and RUNX_RECEIPT_VERIFY_ED25519_PUBLIC_KEY_BASE64, configure a complete RUNX_RECEIPT_SIGN_* identity, or pass --allow-local-development-signatures for local fixture receipts only.",
+      "note": "the third option is the one that applies to the receipt the quickstart just sealed"
+    },
+    {
+      "type": "observed_output",
+      "label": "verify accepting the local-development signature",
+      "value": "runx verify <receipt-id> --allow-local-development-signatures prints signature mode: local-development, tree sha256:<receipt-id> (1 receipt): ok, verification: ok",
+      "note": "this is the verdict the added block documents, scoped to the local-development trust level"
+    },
+    {
+      "type": "docs_change",
+      "label": "what the page now says",
+      "value": "docs/getting-started.md, section Inspect The Receipt",
+      "note": "adds the unverified projection, the verifier-required message, the local-development verdict, and one sentence on what that verdict covers"
+    },
+    {
+      "type": "integrity",
+      "label": "sign-off",
+      "value": "Signed-off-by: jonah791 <jonah791@users.noreply.github.com>",
+      "note": "DCO trailer on the only commit, as CONTRIBUTING.md requires"
+    }
+  ],
+  "generated_at": "2026-09-17T13:05:00Z",
+  "schema": "alice.delivery.evidence.v2"
+}

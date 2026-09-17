@@ -4,8 +4,8 @@
 
 ## What to inspect, in order
 
-1. **The site** — https://validator-community.com/ (28 pages, loads for a plain
-   unauthenticated fetch).
+1. **The site** — https://validator-community-docs.readthedocs.io/ (29 pages, loads for a plain
+   unauthenticated fetch; the same build is also mirrored at https://validator-community.com/).
 2. **The API tab** — every exported package, type, function, method, constant and example extracted
    from source at the pinned commit, with source links back to that commit.
 3. **The receipt** — the sealed runx receipt published with the site, so the build can be audited
@@ -15,13 +15,15 @@
 
 ## Artifacts
 
-- `public_url` = https://validator-community.com/
-- `evidence_json` = https://validator-community.com/evidence.json
-- `receipt_ref` = `runx:receipt:sha256:30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d`
-- `report` = https://validator-community.com/report.md
-- receipt file = https://validator-community.com/receipts/sha256-30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d.json
-- snapshot = https://validator-community.com/godoc-validator.json
-- build config = https://validator-community.com/sourcey.config.ts
+- `public_url` = https://validator-community-docs.readthedocs.io/
+- `evidence_json` = https://validator-community-docs.readthedocs.io/en/latest/evidence.json
+- `receipt_ref` = `runx:receipt:sha256:ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf`
+- `report` = https://validator-community-docs.readthedocs.io/en/latest/report.md
+- receipt file = https://validator-community-docs.readthedocs.io/en/latest/receipts/sha256-ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf.json
+- snapshot = https://validator-community-docs.readthedocs.io/en/latest/godoc-validator.json
+- build config = https://validator-community-docs.readthedocs.io/en/latest/sourcey.config.ts
+- Read the Docs build config = https://github.com/jonah791/validator-community-docs/blob/main/.readthedocs.yaml
+- mirror = https://validator-community.com/
 
 ## Target
 
@@ -59,14 +61,19 @@ sourcey build                                                          # reads s
 
 ## Why the host is durable and credible
 
-- The site is a **project-scoped** home (`validator-community.com/`) backed by a
-  public repository that carries the snapshot, the config, the license attribution, and rebuild
-  instructions — a maintainer or ecosystem user can verify every page against the pinned source.
+- The docs home is **readthedocs.io**, a documentation-hosting domain in use since 2010, so the parent
+  domain existed long before this work — the review's stated requirement of a documentation domain
+  that predates the submission.
+- The built bytes are served from a **public repository** that carries the snapshot, the config, the
+  license attribution, the receipt, and rebuild instructions, and Read the Docs rebuilds that same
+  repository on every push; a maintainer or ecosystem user can verify every page against the pinned
+  source.
 - It is **not** a sandbox, preview, or throwaway host: no expiring deployment URL, no login wall, no
-  placeholder page.
-- **Known gap, stated plainly:** this is a community mirror on a personal project page, not the
-  upstream project's own documentation domain. Adoption by the maintainers (a merged docs link)
-  would be the stronger form; this delivery is the standalone proof.
+  placeholder page — the landing URL is the project root and every artifact resolves with the right
+  content type.
+- **Known gap, stated plainly:** this is a community mirror, not the upstream project's own
+  documentation. Adoption by the maintainers (a merged docs link or an upstream contribution) is the
+  stronger form; this delivery is the standalone proof, published under a name that says what it is.
 
 ## Maintainer-facing gaps the extraction surfaced
 
@@ -110,3 +117,30 @@ abandoned. Minimal reproduction: snapshot cobra at `88b30ab89da2d0d0abb153818746
   so the receipt and the delivered artifacts point at the same revision.
 - **Limitation.** This is a community-generated reference site for a third-party library, hosted on a domain
   dedicated to it. It is not published by the upstream maintainers and carries no upstream endorsement.
+
+## Revision 2 — docs now live on a pre-existing documentation domain (after human review)
+
+- **What the review said.** The rejection was about the home and nothing else: `validator-community.com`
+  was registered on the day the earlier revision was delivered, which makes it a placeholder host with
+  a different name rather than a home an ecosystem user would trust and link to. The two smaller notes
+  were a stale receipt digest in this packet and observations that still described the first,
+  github.io host.
+- **What changed.** `public_url` is now `https://validator-community-docs.readthedocs.io/`, served by
+  Read the Docs from the same public repository (`jonah791/validator-community-docs`), the repository
+  that already carried the snapshot, the receipt and the rebuild instructions. The parent domain is a
+  documentation domain that existed before this work, which is the second form of acceptable home the
+  review named.
+- **How it is built.** `.readthedocs.yaml` in that repository runs a custom build that copies the
+  committed static output into `$READTHEDOCS_OUTPUT/html`; no generator runs on the host, so the
+  published bytes are exactly the committed build. Every push rebuilds and republishes.
+- **The two smaller fixes.** The receipt digest in `evidence.json` and in this report now matches the
+  digest the delivery binds (`sha256:ee9db9b1…`), and no observation refers to the github.io host any
+  more.
+- **What did not change.** The generated site is byte-identical: a deterministic Sourcey 3.6.5 build
+  (29 pages, 25 packages) from the pinned commit `dfe35cf8317892133dfe31e36054dcbf36aab604`, and the
+  receipt is the same sealed run.
+- **Verification of the new home.** Root URL, `evidence.json`, `report.md`, the receipt file, the API
+  pages, the stylesheet and `llms.txt` were each fetched unauthenticated after deploy; all return 200
+  with the expected content type.
+- **Limitation, unchanged.** This is a community-generated reference for a third-party library with no
+  upstream endorsement.

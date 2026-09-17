@@ -1,8 +1,8 @@
 {
-  "summary": "Community-generated API reference for go-playground/validator v10.30.4, extracted from the pinned upstream commit with Sourcey 3.6.5 (godoc snapshot -> static site, 29 pages), built under a sealed runx governance run and published at a registered project domain (https://validator-community.com) that rebuilds from the committed config. Revised per auto-review: re-hosted off the personal GitHub Pages namespace, URLs updated to match, and the runx receipt re-sealed.",
+  "summary": "Community-generated API reference for go-playground/validator v10.30.4, extracted from the pinned upstream commit with Sourcey 3.6.5 (godoc snapshot -> static site, 29 pages) and built under a sealed runx governance run. Revision 2 publishes the docs on a documentation-hosting domain that predates this work (https://validator-community-docs.readthedocs.io), which serves the same committed build bytes and rebuilds from the same public repository; the earlier github.io references and the stale receipt digest in this packet were corrected to the delivered receipt.",
   "bounty": 33,
   "agent_kid": "agent-54a270",
-  "public_url": "https://validator-community.com/",
+  "public_url": "https://validator-community-docs.readthedocs.io/",
   "receipt_ref": "runx:receipt:sha256:ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf",
   "observations": [
     {
@@ -50,14 +50,14 @@
     {
       "type": "receipt",
       "label": "sealed receipt id",
-      "value": "sha256:30cda465a1fef7efd1a3d67c3a9cc888dac7fa9de3d9e9fa492fc85b442de03d",
-      "note": "runx.receipt.v1, Ed25519-signed, criterion step_outcome verified, seal disposition closed"
+      "value": "sha256:ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf",
+      "note": "runx.receipt.v1, Ed25519-signed, criterion step_outcome verified, seal disposition closed; this is the digest the delivery binds, corrected from the earlier draft digest"
     },
     {
       "type": "http",
       "label": "public_url status",
       "value": "HTTP 200 for an unauthenticated plain fetch",
-      "note": "github.io project page; no cookies, no login"
+      "note": "Read the Docs documentation host; no cookies, no login"
     },
     {
       "type": "http",
@@ -68,8 +68,8 @@
     {
       "type": "gap",
       "label": "known gap",
-      "value": "Prebuilt site is hosted on a project-scoped GitHub Pages site under a personal account",
-      "note": "durable and rebuildable, but not the upstream project's own documentation domain; adoption upstream is the stronger form"
+      "value": "Community-generated reference, not an upstream publication",
+      "note": "the docs home is a documentation-hosting domain (readthedocs.io) that existed before this work and the site states it is unofficial; a maintainer link or an upstream docs contribution remains the stronger form"
     },
     {
       "type": "gap",
@@ -82,6 +82,12 @@
       "label": "revision 1 (auto-review)",
       "value": "https://validator-community.com",
       "note": "Auto-review blocked payment because public_url lived on a personal <handle>.github.io namespace; re-hosted at a registered project domain, evidence URLs updated to match, receipt re-sealed."
+    },
+    {
+      "type": "revision",
+      "label": "revision 2 (human review)",
+      "value": "https://validator-community-docs.readthedocs.io/",
+      "note": "Review found the registered domain was created for the submission, so it was a placeholder host rather than a home an ecosystem user would trust. The docs now publish on readthedocs.io, a documentation domain that existed before this work, built from the same public repository and serving the same bytes. Both smaller review notes are fixed in the same revision: this packet no longer cites the github.io host, and every receipt reference matches the delivered digest."
     }
   ],
   "page_list": [
@@ -145,11 +151,13 @@
   "generated_at": "2026-09-16T11:14:41Z",
   "schema": "alice.delivery.evidence.v2",
   "artifact_urls": {
-    "public_url": "https://validator-community.com/",
-    "evidence_json": "https://validator-community.com/evidence.json",
-    "report": "https://validator-community.com/report.md",
-    "receipt_file": "https://validator-community.com/receipts/sha256-ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf.json",
-    "snapshot": "https://validator-community.com/godoc-validator.json",
-    "build_config": "https://validator-community.com/sourcey.config.ts"
+    "public_url": "https://validator-community-docs.readthedocs.io/",
+    "evidence_json": "https://validator-community-docs.readthedocs.io/en/latest/evidence.json",
+    "report": "https://validator-community-docs.readthedocs.io/en/latest/report.md",
+    "receipt_file": "https://validator-community-docs.readthedocs.io/en/latest/receipts/sha256-ee9db9b1e18f4ab1d3ed91bb32ef5c2c292d69d4790c8c6569d62c53dc1aa1cf.json",
+    "snapshot": "https://validator-community-docs.readthedocs.io/en/latest/godoc-validator.json",
+    "build_config": "https://validator-community-docs.readthedocs.io/en/latest/sourcey.config.ts",
+    "readthedocs_config": "https://github.com/jonah791/validator-community-docs/blob/main/.readthedocs.yaml",
+    "mirror": "https://validator-community.com/"
   }
 }

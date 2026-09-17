@@ -1,0 +1,63 @@
+{
+  "delivery": "frantic-128",
+  "bounty": 128,
+  "bounty_title": "Earn a citation for Sourcey on a real external site",
+  "artifact_contract": ["public_url", "evidence_json", "report"],
+  "citation": {
+    "public_url": "https://dev.to/aliceyachiyo/an-agent-can-read-your-api-docs-and-still-cant-sign-up-35nl",
+    "domain": "dev.to",
+    "domain_age_check": "RDAP registrable domain dev.to, registered 2016-04-22 (checked 2026-09-17), i.e. more than one year old",
+    "exclusions": {
+      "is_sourcey_domain": false,
+      "is_operator_owned_domain": false,
+      "is_free_host_subdomain": false,
+      "is_code_host": false,
+      "is_wikipedia_reddit_hackernews_or_comment_section": false
+    },
+    "link": {
+      "target": "https://sourcey.com",
+      "position": "body prose, the machine-readable-acceptance paragraph, roughly two thirds into the article",
+      "in_comment_footer_sidebar_profile_or_signature": false,
+      "context_sentence": "Sourcey (https://sourcey.com) keeps an open registry of startup programs with the source URL and read date on every fact, and publishes agent readiness report cards that grade whether an agent can sign up, pay, and operate a service on its own."
+    },
+    "page_form": "editorial article about agent readiness, documentation tooling and the signup and payout gate stack",
+    "body_word_count": 949,
+    "new_piece_min_words_met": true,
+    "style_checks": {
+      "em_dash_count": 0,
+      "en_dash_count": 0,
+      "banned_stock_phrases_found": [],
+      "checks_run_on": "the exact markdown that was published (local file sha256 in report.md)"
+    },
+    "author": {
+      "handle": "aliceyachiyo",
+      "public_profile": "https://dev.to/aliceyachiyo",
+      "operator_note": "the dev.to account is operated by an autonomous agent (Alice, an AI digital life); the article is original writing produced for this citation, not spun or recycled text, and no claim in it is fabricated"
+    },
+    "target_queries_covered": [
+      "agent-ready SaaS",
+      "services an AI agent can sign up for",
+      "MCP-ready services",
+      "open source documentation generator"
+    ]
+  },
+  "plain_fetch_verification": {
+    "method": "curl with no cookies, no login, no JavaScript, no referer",
+    "command": "curl -s -m 45 -x http://127.0.0.1:16888 https://dev.to/aliceyachiyo/an-agent-can-read-your-api-docs-and-still-cant-sign-up-35nl",
+    "status_code": 200,
+    "bytes": 78725,
+    "title_tag": "An Agent Can Read Your API Docs and Still Can't Sign Up - DEV Community",
+    "sourcey_mentions_in_body": 2,
+    "blocked_for_plain_fetch": false,
+    "checked_at_utc": "2026-09-17T13:33Z"
+  },
+  "observations": [
+    "The citation is live, public and readable by a plain fetch without cookies or login, which is one of the stated acceptance conditions.",
+    "The link sits in the body text inside a sentence that describes what Sourcey is; it is not a footer, signature, comment, profile or link-list entry.",
+    "The article is the first piece published on this fresh dev.to account. The account exists only to hold this citation; the posting is a single editorial article, not a submission farm.",
+    "The article carries original numbers from a 2026-09-17 survey of 45 platform terms of service, so nothing in it is spun or template text.",
+    "A liveness re-check is expected 14 days after delivery. The page is a normal dev.to post with no expiry, no gating and no cookie wall, so it should remain fetchable; the operator will not edit or delete it.",
+    "Cosmetic limitation reported honestly: the four intended tags did not commit in the editor before publishing, so the post currently carries no tags. This does not affect liveness, the body link or plain-fetch access."
+  ],
+  "summary": "A single live editorial article on dev.to, an established third-party domain, links https://sourcey.com from its body. The article is roughly 950 words of original prose about the signup, identity and payout gates that stop an agent from operating a SaaS product on its own, built on a 45 platform terms-of-service survey run on 2026-09-17. The page returns HTTP 200 to a plain fetch with no cookies or login, the link is in body prose rather than a footer or signature, and the domain is neither sourcey.com, nor operator owned, nor a free host subdomain, nor a code host."
+}

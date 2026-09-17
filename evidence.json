@@ -42,6 +42,18 @@
       "note": "the governed run checks each path in this packet's page list for existence; 29 listed, 0 missing"
     },
     {
+      "type": "coverage",
+      "label": "documented public surface, counted",
+      "value": "46 documented API items across 25 packages",
+      "note": "counted from godoc-validator.json: 18 exported types plus 28 functions, drawn from 41 source files; the acceptance floor is 20 documented APIs, modules or concepts"
+    },
+    {
+      "type": "adapter",
+      "label": "Sourcey adapter used",
+      "value": "sourcey godoc (godoc adapter), Sourcey 3.6.5",
+      "note": "extraction ran against a local checkout pinned at dfe35cf8317892133dfe31e36054dcbf36aab604; the build then ran in snapshot mode, so the site does not need a Go toolchain to rebuild"
+    },
+    {
       "type": "harness",
       "label": "runx CLI version in the governed run",
       "value": "runx-cli 0.9.1",
